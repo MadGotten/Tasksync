@@ -1,0 +1,20 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        order_updates: true
+        jdbc:
+          batch_size: 20
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  config:
+    activate:
+      on-profile: prod
+logging:
+  level:
+    org:
+      springframework:
+        security: info

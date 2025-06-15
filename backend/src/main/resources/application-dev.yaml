@@ -1,0 +1,21 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        order_updates: true
+        jdbc:
+          batch_size: 20
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  config:
+    activate:
+      on-profile: dev
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
