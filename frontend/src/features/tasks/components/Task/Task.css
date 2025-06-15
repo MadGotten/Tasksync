@@ -1,0 +1,99 @@
+.task {
+  border-radius: 8px;
+  width: 100%;
+  height: 67px;
+  min-height: 67px;
+  background-color: var(--task-background);
+  color: var(--text);
+  box-shadow:
+    0px 1px 1px #091e4240,
+    0px 0px 1px #091e424f;
+  position: relative;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.task[data-authorized="true"]:hover:not(:has(.task-settings:hover)) {
+  outline: 2px solid;
+  outline-color: light-dark(var(--primary), var(--text)) !important;
+  outline-offset: -2px;
+}
+
+.task-overlay {
+  background-color: transparent;
+  height: 67px;
+  min-height: 67px;
+}
+
+.task-content-wrapper {
+  padding: 12px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-content-wrapper[data-archived="true"] {
+  opacity: 0.6 !important;
+  overflow: hidden;
+}
+
+.task-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  p {
+    margin: 0;
+  }
+}
+
+.task-options {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  top: 8px;
+  right: 40px;
+}
+
+.task-priority {
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.task-settings {
+  top: 2px;
+  right: 4px;
+  position: absolute;
+  display: flex;
+}
+
+.task-name {
+  font-size: 1;
+  font-weight: 500;
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.task-description {
+  font-size: 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.settings-wrapper {
+  position: absolute;
+}
+
+.link {
+  color: #4e88e6;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

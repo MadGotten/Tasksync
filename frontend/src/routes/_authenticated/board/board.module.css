@@ -1,0 +1,15 @@
+.boardGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, 230px);
+  justify-content: left;
+}
+
+.boards {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 100%;
+  margin-bottom: 8px;
+}

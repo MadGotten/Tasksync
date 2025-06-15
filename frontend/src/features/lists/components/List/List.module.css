@@ -1,0 +1,79 @@
+.container {
+  height: 80vh;
+  max-height: 100%;
+  border-radius: 8px;
+}
+
+.overlay {
+  background: var(--list-background);
+  box-shadow: var(--ds-shadow-raised, 0px 1px 1px #091e4240, 0px 0px 1px #091e424f);
+  min-width: 280px;
+  max-width: 280px;
+  border-radius: 8px;
+  height: fit-content;
+  max-height: 80vh;
+  overflow-x: hidden;
+}
+
+.container-overlay {
+  min-width: 280px;
+  max-width: 280px;
+  border-radius: 8px;
+  border: 1px var(--danger) solid;
+  background: transparent;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  max-height: 80vh;
+  padding: 8px;
+  gap: 10px;
+  scrollbar-gutter: stable both-edges;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text);
+  font-weight: 500;
+  text-align: left;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.scrollable {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(80vh - 148px); /* This is a hack calculated in dev tools fix later */
+  gap: 10px;
+  overflow-y: scroll;
+  padding-right: 8px;
+  padding-bottom: 4px;
+  scrollbar-gutter: stable both-edges;
+}
+
+.disableScroll {
+  overflow-y: hidden !important;
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    background: rgba(255, 255, 255, 0.07);
+    min-width: 100%;
+    height: 600px;
+    border-radius: 8px;
+  }
+}

@@ -1,0 +1,36 @@
+.errorPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.errorContent {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.5rem;
+}
+
+.errorDetails {
+  gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.helperText {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.homeLink {
+  width: fit-content;
+  color: #2a94f7;
+  font-weight: 400;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

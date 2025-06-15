@@ -1,0 +1,58 @@
+@import "@/animations.module.css";
+
+.root {
+  position: absolute;
+  z-index: 10;
+  padding: 0.25rem;
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  background-color: light-dark(#ffffff4f, var(--task-background));
+  width: 150px;
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  animation: slideInFromTop 0.1s ease-in-out;
+}
+
+.root[data-orientation="right"] {
+  border-radius: 0 8px 8px 8px;
+}
+
+.root[data-orientation="left"] {
+  border-radius: 8px 0 8px 8px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.option {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 32px;
+  gap: 0.75rem;
+  border-radius: 4px;
+  padding-left: 0.75rem;
+  cursor: pointer;
+
+  &:hover {
+    font-weight: 500;
+    letter-spacing: -0.001527em;
+    background-color: rgba(0, 26, 255, 0.349);
+    color: rgb(0, 162, 255);
+    background-color: var(--primary);
+  }
+}
+
+.option-default:hover {
+  background-color: light-dark(rgba(0, 89, 255, 0.274), rgba(0, 26, 255, 0.3));
+  color: light-dark(rgb(0, 26, 255), rgb(0, 175, 255));
+}
+
+.option-danger:hover {
+  background-color: light-dark(rgba(255, 144, 138, 0.349), rgba(158, 36, 15, 0.3));
+  color: light-dark(rgb(223, 20, 20), rgb(255, 0, 0));
+}

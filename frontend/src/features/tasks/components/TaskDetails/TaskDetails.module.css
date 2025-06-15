@@ -1,0 +1,44 @@
+.taskModal {
+  max-width: 600px !important;
+  width: 100%;
+}
+
+.modalPadding {
+  padding-right: 8px !important;
+}
+
+.actionList {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.actionName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.actionType {
+  text-align: left;
+  word-break: break-word;
+  font-size: 0.875rem;
+}
+
+.headlessInput {
+  color: var(--text-color) !important;
+  width: 100%;
+  text-align: center;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  line-height: 24px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-overflow: ellipsis;
+}
+
+.descriptionInput {
+  line-height: 1.25;
+}

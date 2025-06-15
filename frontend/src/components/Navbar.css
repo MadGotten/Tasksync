@@ -1,0 +1,55 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  padding: 0 1rem;
+  z-index: 10;
+  background: var(--background);
+  border-bottom: 1px solid var(--gray);
+}
+
+.user-profile {
+  background: linear-gradient(135deg, #6286ff 30%, #0531c4 100%);
+  height: 32px;
+  width: 32px;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 32px;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 0.9em;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.profile-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.navbar-left,
+.navbar-center,
+.navbar-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.125rem;
+  font-weight: 700;
+
+  &:hover span {
+    opacity: 0.9;
+  }
+}

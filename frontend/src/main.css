@@ -1,0 +1,125 @@
+@import "animations.module.css";
+
+:root {
+  --text: #e3ebf8;
+  --text-light: #e3ebf8;
+  --text-dark: #172131;
+
+  --background: #111111ff;
+  --primary: #226bf3;
+  --primary-dark: #2d62c5;
+  --danger: #c03333;
+  --success: #78da3b;
+  --warning: #e2c335;
+  --gray: #303030;
+
+  --list-background: #1e1e1e;
+  --list-hover: #383838;
+
+  --task-background: #34373f62;
+
+  --border: #303030;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  color-scheme: dark;
+  color: var(--text);
+
+  font-synthesis: none;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root[data-theme="light"] {
+  --text: #172131;
+  --text-light: #e3ebf8;
+  --text-dark: #172131;
+
+  --background: #ffffff;
+  --primary: #226bf3;
+  --primary-dark: #2e62c4;
+  --danger: #c03333;
+  --success: #78da3b;
+  --warning: #e2c335;
+  --gray: #cccccc;
+
+  --list-background: #f0f0f0;
+  --list-hover: #dedede;
+
+  --task-background: var(--background);
+
+  --border: #cfd3da;
+
+  color-scheme: light;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+input,
+select,
+button,
+textarea {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+input,
+select {
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+  height: 100%;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#root {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  height: 100%;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  background: light-dark(rgb(206, 206, 206), rgb(56, 56, 56));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: light-dark(rgb(176, 176, 176), rgb(96, 96, 96));
+}

@@ -1,0 +1,16 @@
+<svg width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 90 90" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="a">
+      <stop style="stop-color:#77c5ff;stop-opacity:1" offset="0"/>
+      <stop style="stop-color:#003ce0;stop-opacity:1" offset="1"/>
+    </linearGradient>
+    <linearGradient xlink:href="#a" id="b" x1="58.075" y1="102.829" x2="143.654" y2="187.335" gradientUnits="userSpaceOnUse" spreadMethod="pad" gradientTransform="translate(-5.38 -.136)scale(.9659)"/>
+  </defs>
+  <path style="fill:url(#b);stroke-width:1.02225;stroke-opacity:0" d="M61.21 95h58.557c8.981 0 16.211 7.23 16.211 16.21v57.58c0 8.98-7.23 16.21-16.21 16.21H61.21C52.23 185 45 177.77 45 168.79v-57.58C45 102.23 52.23 95 61.21 95" transform="translate(-45 -95)"/>
+  <g transform="translate(-45.496 -92.492)">
+    <path style="color:#000;fill:#fdfeff;stroke:#fdfeff;stroke-width:1;stroke-dasharray:none;stroke-opacity:1" d="M66 120.5c-3.038 0-5.5 1.915-5.5 4.926 0 3.01 2.462 4.926 5.5 4.926h4.5v18.392A5.656 5.605 0 0 0 76 154.5a5.664 5.613 0 0 0 5.5-5.77v-18.378H86c3.039 0 5.5-1.915 5.5-4.926S89.04 120.5 86 120.5zm0 .991h20c2.502 0 4.5 1.456 4.5 3.935s-1.998 3.935-4.5 3.935h-5.5v19.35a4.674 4.632 0 0 1-4.5 4.798 4.641 4.6 0 0 1-4.5-4.736v-19.412H66c-2.502 0-4.5-1.456-4.5-3.935s1.998-3.935 4.5-3.935z"/>
+    <rect style="opacity:1;fill:none;fill-opacity:1;stroke:#fdfeff;stroke-width:1.99786;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" width="11.002" height="33.029" x="94.986" y="120.986" ry="5.227"/>
+    <rect style="opacity:1;fill:none;fill-opacity:1;stroke:#fdfeff;stroke-width:1.99236;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" width="11.008" height="18.008" x="109.966" y="120.966" ry="5.445"/>
+    <circle style="opacity:1;fill:none;fill-opacity:1;stroke:#fdfeff;stroke-width:1.98093;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" cx="115.437" cy="148.437" r="5.51"/>
+  </g>
+</svg>

@@ -1,0 +1,99 @@
+.container {
+  height: 100% !important;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.header a {
+  width: 150px;
+}
+
+.heading {
+  line-height: 1.25;
+  width: 500px;
+  text-align: left;
+  word-spacing: 0.25rem;
+  position: relative;
+}
+
+.ambientBackground {
+  position: absolute;
+  height: 300px;
+  transform: translate(0%, -40%);
+  width: 400px;
+  z-index: -1;
+  filter: blur(192px);
+  content: "";
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 51%,
+    var(--background) 100%
+  );
+}
+
+.highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  background: url("/home-underscore.svg") no-repeat;
+  z-index: -1;
+  height: 40px;
+  width: 150%;
+  left: -24px;
+  bottom: -24px;
+  position: absolute;
+  content: "";
+  background-size: contain;
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    justify-items: center;
+  }
+  .heading {
+    width: 360px;
+    line-height: 1.15;
+    font-size: 2.5rem;
+  }
+  .highlight::after {
+    width: 120%;
+    left: -12px;
+    bottom: -28px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    justify-items: center;
+  }
+  .heading {
+    text-align: center;
+    width: 100%;
+  }
+  .ambientBackground {
+    width: 100%;
+  }
+  .highlight::after {
+    left: -8px;
+    bottom: -36px;
+  }
+  .header {
+    align-items: center;
+  }
+
+  .header a {
+    width: 100%;
+    max-width: 150px;
+  }
+}
