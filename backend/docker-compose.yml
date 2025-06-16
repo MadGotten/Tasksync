@@ -7,7 +7,7 @@ services:
       PGDATA: /var/lib/postgresql/data
       POSTGRES_DB: tasksync
     volumes:
-      - postgres:/data/postgres
+      - ./data:/var/lib/postgresql/data
     ports:
       - 5555:5432
     networks:
@@ -18,12 +18,17 @@ services:
     ports:
       - 9090:8080
     environment:
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      JAVA_OPTS_APPEND: >
+        - XX:+UseG1GC
+        - XX:+AggressiveOpts
     networks:
       - tasksync
-    command:
-      - "start-dev"
+    command: ["start-dev"]
+    depends_on:
+      - postgres
+
 networks:
   tasksync:
     driver: bridge
