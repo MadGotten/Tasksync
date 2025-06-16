@@ -12,6 +12,7 @@ export default defineConfig({
     }),
     react(),
   ],
+  base: "/",
   preview: {
     port: 5173,
   },
