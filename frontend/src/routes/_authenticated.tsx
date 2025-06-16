@@ -13,7 +13,7 @@ export const Route = createFileRoute("/_authenticated")({
 function RouteComponent() {
   const { auth } = Route.useRouteContext();
 
-  if (auth.isInitialized && !auth.isAuthenticated) {
+  if (auth.isInitialized && !auth.isAuthenticated && !auth.authLoading) {
     keycloak.login({ redirectUri: window.location.href });
   }
 

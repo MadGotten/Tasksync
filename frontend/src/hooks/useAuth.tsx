@@ -13,6 +13,7 @@ export const useAuth = (): AuthContext => {
     isInitialized: false,
     isAuthenticated: false,
     user: undefined,
+    authLoading: false,
   });
 
   keycloak.onTokenExpired = () => {
@@ -40,6 +41,10 @@ export const useAuth = (): AuthContext => {
   };
 
   keycloak.onAuthSuccess = async () => {
+    setAuth((auth) => ({
+      ...auth,
+      authLoading: true,
+    }));
     await keycloak.loadUserProfile().then((profile) => {
       flushSync(() => {
         setAuth({
@@ -50,6 +55,7 @@ export const useAuth = (): AuthContext => {
             email: profile?.email || "",
             picture: (profile?.attributes?.picture as string) || "",
           },
+          authLoading: false,
         });
         authenticate();
       });
