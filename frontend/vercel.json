@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/silent-check-sso.html",
+      "destination": "/silent-check-sso.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
