@@ -137,7 +137,7 @@ public class BoardServiceTest {
 
         BoardMember member = BoardMember.builder().user(user).board(board).role(Role.ADMIN).build();
 
-        Board updatedBoard = new Board(1, "UPDATED_BOARD", false ,userId, Set.of(member) ,null);
+        Board updatedBoard = Board.builder().id(1).name("UPDATED_BOARD").owner(userId).members(Set.of(member)).build();
         BoardResponseDto expectBoard = new BoardResponseDto(1, "UPDATED_BOARD", false);
 
 

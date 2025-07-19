@@ -32,9 +32,11 @@ public class Board {
     @OneToMany(mappedBy = "board", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<BoardMember> members = new HashSet<>();
 
+    @Builder.Default
     @OneToMany(mappedBy = "board", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<BoardList> boardLists = new ArrayList<>();
 
+    @Builder.Default
     @OneToMany(mappedBy = "board", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<Action> actions = new ArrayList<>();
 
