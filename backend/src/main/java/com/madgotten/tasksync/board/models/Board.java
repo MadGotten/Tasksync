@@ -1,5 +1,6 @@
 package com.madgotten.tasksync.board.models;
 
+import com.madgotten.tasksync.action.models.Action;
 import com.madgotten.tasksync.list.models.BoardList;
 import jakarta.persistence.*;
 import lombok.*;
@@ -33,6 +34,9 @@ public class Board {
 
     @OneToMany(mappedBy = "board", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<BoardList> boardLists = new ArrayList<>();
+
+    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private List<Action> actions = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {

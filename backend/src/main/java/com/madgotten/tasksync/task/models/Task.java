@@ -49,7 +49,7 @@ public class Task {
     @JoinColumn(name="column_id", insertable=false, updatable=false)
     private BoardList column;
 
-    @OneToMany(mappedBy = "task", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "task", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Action> actions;
 
     @Override
