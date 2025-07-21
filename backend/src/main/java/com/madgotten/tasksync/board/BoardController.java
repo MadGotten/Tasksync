@@ -5,6 +5,7 @@ import com.madgotten.tasksync.board.dto.*;
 import com.madgotten.tasksync.board.models.Role;
 import com.madgotten.tasksync.board.service.BoardService;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -14,13 +15,10 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/boards")
 @Transactional
+@AllArgsConstructor
 public class BoardController {
 
     private final BoardService boardService;
-
-    public BoardController(BoardService boardService) {
-        this.boardService = boardService;
-    }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)

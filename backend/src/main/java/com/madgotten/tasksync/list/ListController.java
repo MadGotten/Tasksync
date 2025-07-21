@@ -7,6 +7,7 @@ import com.madgotten.tasksync.list.dto.ListRequestDto;
 import com.madgotten.tasksync.list.dto.ValidationGroups;
 import com.madgotten.tasksync.list.service.ListService;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -15,13 +16,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
+@AllArgsConstructor
 public class ListController {
 
     private final ListService listService;
-
-    public ListController(ListService listService) {
-        this.listService = listService;
-    }
 
     @GetMapping("/boards/{boardId}/lists")
     @ResponseStatus(HttpStatus.OK)

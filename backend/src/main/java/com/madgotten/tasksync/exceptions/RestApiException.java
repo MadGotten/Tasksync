@@ -1,4 +1,4 @@
-package com.madgotten.tasksync;
+package com.madgotten.tasksync.exceptions;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;

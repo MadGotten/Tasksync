@@ -1,6 +1,5 @@
 package com.madgotten.tasksync.exceptions;
 
-import com.madgotten.tasksync.RestApiException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
