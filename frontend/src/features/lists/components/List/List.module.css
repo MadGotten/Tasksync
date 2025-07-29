@@ -68,12 +68,3 @@
 .disableScroll {
   overflow-y: hidden !important;
 }
-
-@media only screen and (max-width: 500px) {
-  .container {
-    background: rgba(255, 255, 255, 0.07);
-    min-width: 100%;
-    height: 600px;
-    border-radius: 8px;
-  }
-}
