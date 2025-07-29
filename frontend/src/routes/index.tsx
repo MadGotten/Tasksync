@@ -46,11 +46,15 @@ function RouteComponent() {
             </div>
             <div className={styles.feat}>
               <p className={styles.featName}>Secure & Private</p>
-              <div className={styles.lockIcon}>
+              <div className={styles.secureIcon}>
                 <div className={styles.ring} />
                 <div className={styles.ring} />
                 <div className={styles.ring} />
-                <svg xmlns='http://www.w3.org/2000/svg' width='36' height='48' viewBox='0 0 24 32'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  className={styles.lockIcon}
+                  viewBox='0 0 24 32'
+                >
                   <path
                     fill='currentColor'
                     d='M0 18a4 4 0 0 1 4-4h16a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V18ZM4 8a8 8 0 1 1 16 0v4H4V8Z'
@@ -74,8 +78,8 @@ function RouteComponent() {
                 Stay organized and focused with task prioritization.
               </p>
             </div>
-            <footer className={styles.footer} />
           </div>
+          <footer className={styles.footer} />
         </div>
       </Plane>
     </>
