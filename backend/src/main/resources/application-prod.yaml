@@ -1,4 +1,6 @@
 spring:
+  main:
+    lazy-initialization: true
   jpa:
     hibernate:
       ddl-auto: update
@@ -18,3 +20,10 @@ logging:
     org:
       springframework:
         security: info
+management:
+  endpoints:
+    access:
+      default: none
+  endpoint:
+    health:
+      access: read_only
