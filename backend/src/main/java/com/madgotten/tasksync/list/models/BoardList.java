@@ -47,4 +47,4 @@ public class BoardList {
         return Objects.hash(id, name, position, boardId);
     }
 
-    ;}
+}
