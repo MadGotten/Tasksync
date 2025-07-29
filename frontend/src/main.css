@@ -4,6 +4,7 @@
   --text: #e3ebf8;
   --text-light: #e3ebf8;
   --text-dark: #172131;
+  --text-secondary: #bec3ca;
 
   --background: #111111ff;
   --primary: #226bf3;
@@ -19,6 +20,7 @@
   --task-background: #34373f62;
 
   --border: #303030;
+  --ring: 48, 48, 48;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
@@ -38,6 +40,7 @@
   --text: #172131;
   --text-light: #e3ebf8;
   --text-dark: #172131;
+  --text-secondary: #23272f;
 
   --background: #ffffff;
   --primary: #226bf3;
@@ -53,6 +56,7 @@
   --task-background: var(--background);
 
   --border: #cfd3da;
+  --ring: 204, 204, 204;
 
   color-scheme: light;
 }
@@ -97,7 +101,7 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 3.2rem;
   line-height: 1.1;
 }
 
