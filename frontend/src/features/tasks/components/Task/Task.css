@@ -97,3 +97,27 @@
     text-decoration: underline;
   }
 }
+
+.task-assignee {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  bottom: 4px;
+  right: 4px;
+}
+
+.task-assignee__avatar {
+  margin-left: -12px;
+  width: 24px;
+  height: 24px;
+  box-sizing: content-box;
+  border: 2px solid var(--task-background);
+  border-radius: 50%;
+  position: relative;
+}
+
+.task-assignee__count {
+  margin-right: 16px;
+  font-size: 0.8rem;
+  color: var(--text);
+}

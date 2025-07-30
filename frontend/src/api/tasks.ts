@@ -135,4 +135,16 @@ export const TaskApi = {
       },
     });
   },
+
+  assignTask: async (boardId: number, taskId: number): Promise<Task> => {
+    const response = await fetch(`${BASE_URL}/api/v1/boards/${boardId}/tasks/${taskId}/assign`, {
+      method: "PUT",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${keycloak.token}`,
+      },
+    });
+    return response.json();
+  },
 };

@@ -3,7 +3,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { Link } from "@tanstack/react-router";
 import "./Task.css";
-import { Task as TaskEntity } from "@/types/api";
+import { TaskExpanded, User } from "@/types/api";
 import DropdownTask from "@/features/tasks/components/Task/DropdownTask";
 import { isAuthorized } from "@/utils/permissions";
 import { Role } from "@/types/enums";
@@ -17,7 +17,7 @@ enum Colors {
 
 type TaskProps = {
   isDragged?: boolean;
-  task: TaskEntity;
+  task: TaskExpanded;
   memberRole: "ADMIN" | "MEMBER" | "GUEST";
   boardId: number;
   disableScroll?: VoidFunction;
@@ -69,6 +69,9 @@ export const Task: React.FC<TaskProps> = memo(
             <div className='task-options'>
               <span className='task-priority' style={{ backgroundColor: color }} />
             </div>
+            <div className='task-assignee'>
+              <TaskAssignee assignees={task.assignees} />
+            </div>
           </Link>
           <Authorized boardId={boardId.toString()} role='MEMBER'>
             <div className='task-settings'>
@@ -80,3 +83,24 @@ export const Task: React.FC<TaskProps> = memo(
     );
   }
 );
+
+const TaskAssignee = ({ assignees }: { assignees: User[] }) => {
+  const maxVisibleAssignees = 4;
+  const visibleAssignees = assignees.slice(0, maxVisibleAssignees);
+  const remainingCount = assignees.length - maxVisibleAssignees;
+
+  return (
+    <>
+      {remainingCount > 0 && <div className='task-assignee__count'>+{remainingCount}</div>}
+
+      {visibleAssignees.map((assignee, index) => (
+        <img
+          src={assignee.avatarUrl}
+          className='task-assignee__avatar'
+          key={assignee.id}
+          style={{ zIndex: assignees.length + index }}
+        />
+      ))}
+    </>
+  );
+};

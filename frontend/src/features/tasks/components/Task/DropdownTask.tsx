@@ -2,6 +2,7 @@ import { useState, memo, useCallback } from "react";
 import { Task as TaskEntity } from "@/types/api";
 import { useRemoveTask } from "@/features/tasks/api/useRemoveTask";
 import { useArchiveTask } from "@/features/tasks/api/useArchiveTask";
+import { useAssignTask } from "@/features/tasks/api/useAssignTask";
 import { EditTask } from "@/features/tasks/components/EditTask";
 import Dropdown from "@/components/ui/Dropdown/Dropdown";
 import { IconButton } from "@/components/ui";
@@ -29,6 +30,7 @@ const DropdownTask = memo(
 
     const { mutate: mutateRemoveTask } = useRemoveTask({ boardId: boardId });
     const { mutate: mutateArchiveTask } = useArchiveTask({ boardId: boardId });
+    const { mutate: mutateAssignTask } = useAssignTask({ boardId: boardId });
 
     const toggleSettings = (open: boolean) => {
       setDropdownOpen(open);
@@ -47,6 +49,11 @@ const DropdownTask = memo(
       setDropdownOpen(false);
     };
 
+    const handleAssignClick = () => {
+      mutateAssignTask(task.id);
+      setDropdownOpen(false);
+    };
+
     return (
       <Dropdown
         onOpenChange={toggleSettings}
@@ -58,6 +65,12 @@ const DropdownTask = memo(
       >
         <Dropdown.Option asChild>
           <EditTask boardId={boardId} initialData={task} onOpenChange={handleModalOpen} />
+        </Dropdown.Option>
+        <Dropdown.Option onClick={handleAssignClick}>
+          <>
+            <Icon icon='lucide:circle-chevron-left' width={20} height={20} />
+            Assign
+          </>
         </Dropdown.Option>
         <Dropdown.Option onClick={handleArchiveClick}>
           <>

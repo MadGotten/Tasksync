@@ -24,7 +24,6 @@ export type Pageable<T> = {
 };
 
 export type User = UEntity<{
-  id: string;
   name: string;
   email: string;
   avatarUrl?: string;
@@ -48,6 +47,10 @@ export type Task = Entity<{
   board_id: number;
   column_id: number;
 }>;
+
+export type TaskExpanded = Task & {
+  assignees: User[];
+};
 
 export type List = Entity<{
   name: string;
