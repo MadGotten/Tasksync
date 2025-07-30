@@ -150,7 +150,7 @@ public class BoardService {
 
         board.getMembers().add(BoardMember.builder().user(user).board(board).role(Role.MEMBER).build());
 
-        actionService.createAction(ActionType.BOARD_INVITED, user.getName(), board, null);
+        actionService.createAction(ActionType.BOARD_INVITED, String.valueOf(user.getId()), board, null);
 
         boardRepository.save(board);
     }
@@ -181,7 +181,7 @@ public class BoardService {
 
         board.getMembers().remove(boardMember);
 
-        actionService.createAction(ActionType.BOARD_REMOVED, boardMember.getUser().getName(), board, null);
+        actionService.createAction(ActionType.BOARD_REMOVED, String.valueOf(boardMember.getUser().getId()), board, null);
 
         boardRepository.save(board);
     }
