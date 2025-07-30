@@ -3,6 +3,8 @@ package com.madgotten.tasksync.task.service;
 import com.madgotten.tasksync.action.service.ActionService;
 import com.madgotten.tasksync.action.models.ActionType;
 import com.madgotten.tasksync.ApiConstants;
+import com.madgotten.tasksync.authentication.UserRepository;
+import com.madgotten.tasksync.authentication.models.User;
 import com.madgotten.tasksync.list.ListRepository;
 import com.madgotten.tasksync.list.exceptions.ListNotFoundException;
 import com.madgotten.tasksync.list.models.BoardList;
@@ -14,6 +16,7 @@ import com.madgotten.tasksync.task.dto.TaskDto;
 import com.madgotten.tasksync.task.dto.TaskOnlyResponseDto;
 import com.madgotten.tasksync.task.models.Task;
 import com.madgotten.tasksync.task.exceptions.TaskNotFoundException;
+import jakarta.persistence.criteria.JoinType;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
@@ -22,6 +25,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,6 +37,7 @@ public class TaskService {
     private final TaskMapper taskMapper;
     private final ListRepository listRepository;
     private final ActionService actionService;
+    private final UserRepository userRepository;
 
     private Authentication getCurrentUser() {
         return SecurityContextHolder.getContext().getAuthentication();
@@ -39,29 +45,28 @@ public class TaskService {
 
     public List<TaskOnlyResponseDto> getAllTasksByBoard(Integer boardId, String archived) {
         return taskRepository.findAll(
-                TaskSpecification.filterByArchived(archived)
-                        .and((root, query, cb) -> {
-                            query.orderBy(cb.asc(root.get("position")));
-                            return cb.equal(root.get("boardId"), boardId);
-                        })
-                )
+                TaskSpecification.filterByArchived(archived).and((root, query, cb) -> {
+                    root.fetch("assignees", JoinType.LEFT);
+                    return cb.equal(root.get("boardId"), boardId);
+                }),
+                Sort.by("position").ascending())
                 .stream()
                 .map(taskMapper::fromTaskOnly)
                 .collect(Collectors.toList());
     }
 
     public List<TaskOnlyResponseDto> getAllTasksByList(Integer boardId, Integer listId, String archived) {
-
         return taskRepository.findAll(
                 TaskSpecification.filterByArchived(archived)
-                        .and((root, query, cb) -> {
-                            query.orderBy(cb.asc(root.get("position")));
-                            return cb.and(
-                                    cb.equal(root.get("columnId"), listId),
-                                    cb.equal(root.get("boardId"), boardId)
-                            );
-
-                        })
+                    .and((root, query, cb) -> {
+                        root.fetch("assignees", JoinType.LEFT);
+                        return cb.and(
+                            cb.equal(root.get("boardId"), boardId),
+                            cb.equal(root.get("columnId"), listId)
+                        );
+                    }
+                ),
+                Sort.by("position").ascending()
                 )
                 .stream()
                 .map(taskMapper::fromTaskOnly)
@@ -159,5 +164,26 @@ public class TaskService {
             position += ApiConstants.POSITION_INCREMENT;
         }
         taskRepository.saveAll(tasks);
+    }
+
+    @Transactional
+    public TaskOnlyResponseDto assignTask(Integer boardId, Integer taskId) {
+        Authentication currentUser = getCurrentUser();
+        Task task = taskRepository.findByIdAndBoardId(taskId, boardId)
+                .orElseThrow(() -> new TaskNotFoundException(taskId));
+
+        User user = userRepository.findById(UUID.fromString(currentUser.getName()))
+                .orElseThrow(() -> new TaskNotFoundException(taskId));
+
+        Set<User> assignees = task.getAssignees();
+
+        if(assignees.contains(user)) {
+            assignees.remove(user);
+        } else {
+            assignees.add(user);
+        }
+        task = taskRepository.save(task);
+
+        return taskMapper.fromTaskOnly(task);
     }
 }

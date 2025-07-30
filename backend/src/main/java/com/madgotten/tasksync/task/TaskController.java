@@ -92,4 +92,11 @@ public class TaskController {
     public void orderTasks(@PathVariable Integer boardId, @PathVariable Integer id) {
         taskService.orderTasks(boardId, id);
     }
+
+    @PutMapping("/boards/{boardId}/tasks/{id}/assign")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @RequirePermission(Role.MEMBER)
+    public TaskOnlyResponseDto assignTask(@PathVariable Integer boardId, @PathVariable Integer id) {
+        return taskService.assignTask(boardId, id);
+    }
 }
