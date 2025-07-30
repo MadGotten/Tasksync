@@ -84,8 +84,8 @@ const actionTypeComponent: Record<string, (action: Action) => React.ReactNode> =
   TASK_ARCHIVED: (action) => <TaskArchivedMessage action={action} />,
   BOARD_CREATED: (action) => <BoardCreatedMessage action={action} />,
   BOARD_UPDATED: (action) => <BoardUpdatedMessage action={action} />,
-  BOARD_INVITED_MEMBER: (action) => <BoardInvitedMemberMessage action={action} />,
-  BOARD_REMOVED_MEMBER: (action) => <BoardRemovedMemberMessage action={action} />,
+  BOARD_INVITED: (action) => <BoardInvitedMemberMessage action={action} />,
+  BOARD_REMOVED: (action) => <BoardRemovedMemberMessage action={action} />,
 };
 
 export const ActionMessage = ({ action }: { action: Action }) => {
